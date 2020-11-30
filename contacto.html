@@ -11,38 +11,41 @@
 </head>
 
 <body>
-    <!-- NavBar -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Inicio -->
-        <a class="navbar-brand" href="index.html">Inicio</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+            Inicio
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <!-- Resto de NavBar -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contacto</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Mercedez-Benz
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="pagina1.html">Mercedes Benz G63 AMG 6x6</a>
-                    <a class="dropdown-item" href="pagina2.html">Mercedes Benz AMG GT-R</a>
-                    <a class="dropdown-item" href="pagina3.html">Mercedes AMG S 65</a>
-                    <a class="dropdown-item" href="pagina4.html">Mercedes Maybach S 650</a>
-                    <a class="dropdown-item" href="pagina5.html">Mercedes AMG SL-65</a>
-                </div>
-            </li>
-        </ul>
-
-        <!-- Botón buscar -->
-        <ul class="navbar-nav ml-auto">
-            <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" placeholder="Buscar">
-                <button class="btn btn-success" type="submit">Buscar</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mercedez-Benz
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="pagina1.html">Mercedes Benz G63 AMG 6x6</a>
+                        <a class="dropdown-item" href="pagina2.html">Mercedes Benz AMG GT-R</a>
+                        <a class="dropdown-item" href="pagina3.html">Mercedes AMG S 65</a>
+                        <a class="dropdown-item" href="pagina4.html">Mercedes Maybach S 650</a>
+                        <a class="dropdown-item" href="pagina5.html">Mercedes AMG SL-65</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
-        </ul>
+        </div>
     </nav>
 
     <!-- Título  -->
@@ -53,19 +56,19 @@
     </div>
 
     <!-- Formulario -->
-    <div class="container">
+    <div class="container-fluid">
         <h2>Complete con su información</h2>
         <form>
-
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="nombre">Nombre:</label>
-                        <input type="name" class="form-control" placeholder="Nombre">
+                        <label for="validationDefault01">Nombre:</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Nombre" required>
                     </div>
                     <div class="col">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" class="form-control" placeholder="Apellido">
+                        <label for="validationDefault02">Apellido:</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="Apellido"
+                            required>
                     </div>
                 </div>
             </div>
@@ -77,18 +80,13 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="pwd">Contraseña:</label>
-                <input type="password" class="form-control" id="contra" placeholder="Escriba su contraseña"
-                    name="contra">
-            </div>
-            <div class="form-group">
                 <label for="exampleFormControlTextarea1">Mensaje</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
             </div>
             <div class="checkbox">
                 <label><input type="checkbox" name="recordar"> Recuerdame</label>
             </div>
-            <button type="submit" class="btn btn-default">Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
     <br></br>
