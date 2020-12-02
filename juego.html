@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Adivinanza</title>
+    <style>
+        p {
+            color: black;
+            font-family: Verdana;
+            text-align: justify;
+        }
+
+        .btn {
+            background-color: #ddd;
+            border: none;
+            color: black;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #3e618e;
+            color: white;
+        }
+    </style>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Inicio -->
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+            Inicio
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Resto de NavBar -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="juego.html">Juego Adivinanza</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mercedez-Benz
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="pagina1.html">Mercedes Benz G63 AMG 6x6</a>
+                        <a class="dropdown-item" href="pagina2.html">Mercedes Benz AMG GT-R</a>
+                        <a class="dropdown-item" href="pagina3.html">Mercedes AMG S 65</a>
+                        <a class="dropdown-item" href="pagina4.html">Mercedes Maybach S 650</a>
+                        <a class="dropdown-item" href="pagina5.html">Mercedes AMG SL-65</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Adivinanza</h1>
+        <p class="lead">Página hecha con HTML, Bootstrap y JavaScript para el trabajo Nº 3 del curso del ISPC</p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>El vehículo de la imagen de abajo es de otra reconocida marca alemana ¿cúal es esa marca? (escribir en mínusculas)</p>
+                <img src="images/bmw_m8.jpg" class="img-fluid" alt="objeto a adivinar" width="400px" height="250px">
+            </div>
+        </div>
+        <form>
+            <input type="text" name="txtRespuesta" id="txtRespuesta">
+            <button onclick="Intento()" class="btn" id="txtRespuesta">Realizar intento</button>
+        </form>
+    </div>
+    <br></br>
+
+
+
+    <!-- Modales segun cantidad de intentos-->
+    <div class="modal" id="ganaste" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Felicidades!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Has acertado la respuesta!.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="4intentos" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fallaste</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Te quedan 4 intentos</p>
+                    <p>Escribir la respuesta en minúscula</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="3intentos" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fallaste</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-primerpista"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="perdiste" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Perdiste</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Se agotaron los intentos</p>
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script>
+        var intentos = 5;
+        var correcto = "bmw";
+        var primerPista = "<p>Te quedan 3 intentos</p><p>PISTA: También fabrican motocicletas</p>";
+        var segundaPista = "<p>Te quedan 2 intentos</p><p>PISTA: Su nombre es una sigla alemana que significa Fábricas de Motores de Baviera</p>";
+        var ultimoIntento = "<p>Te queda un último intento, ¡suerte!</p>";
+        var ganaste = false;
+
+        function Intento() {
+            event.preventDefault();
+
+            var respuesta = document.getElementById('txtRespuesta').value;
+
+            if (respuesta == correcto && intentos >= 1) {
+                $('#ganaste').modal('show');
+                ganaste = true;
+                intentos = 0;
+            } else if (respuesta !== correcto && intentos == 5) {
+                intentos = intentos - 1
+                $('#4intentos').modal('show');
+            } else if (respuesta !== correcto && intentos == 4) {
+                intentos = intentos - 1
+                $("#modal-primerpista").html(primerPista);
+                $('#3intentos').modal('show');
+            } else if (respuesta !== correcto && intentos == 3) {
+                intentos = intentos - 1
+                $("#modal-primerpista").html(segundaPista);
+                $('#3intentos').modal('show');
+            } else if (respuesta !== correcto && intentos == 2) {
+                intentos = intentos - 1
+                $("#modal-primerpista").html(ultimoIntento);
+                $('#3intentos').modal('show');
+            } else if (respuesta !== correcto && intentos == 1) {
+                intentos = intentos - 1
+                $('#perdiste').modal('show');
+            } else {
+                if (ganaste) {
+                    $('#ganaste').modal('show');
+                } else {
+                    $('#perdiste').modal('show');
+                }
+            }
+
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
